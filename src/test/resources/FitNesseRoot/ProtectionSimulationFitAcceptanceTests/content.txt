@@ -1,0 +1,28 @@
+!contents -R2 -g -p -f -h
+
+[[Back][FrontPage]]
+
+!path fitlibrary-2.0.jar
+!path fitnesse.jar
+!path lib/*.jar
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+
+
+!path ${PROTTARGET}/classes/
+!path ${PROTTARGET}/test-classes/
+!path ${M2REPO}/org/grayleaves/simulation-scenario/1.0-SNAPSHOT/simulation-scenario-1.0-SNAPSHOT.jar
+!path ${M2REPO}/org/grayleaves/simulation-scenario/1.0-SNAPSHOT/simulation-scenario-1.0-SNAPSHOT-tests.jar
+!path ${M2REPO}/edu/uci/imbs/protection-simulation/1.0/protection-simulation-1.0.jar
+!path ${M2REPO}/org/grayleaves/simulation-scenario-fit/1.0-SNAPSHOT/simulation-scenario-fit-1.0-SNAPSHOT.jar
+!path ${M2REPO}/javax/transaction/jta/1.1/jta-1.1.jar
+!path ${M2REPO}/javax/security/jacc/1.0/jacc-1.0.jar
+!path ${M2REPO}/com/madgag/util-diff/1.25/util-diff-1.25.jar
+!path ${M2REPO}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+!path ${M2REPO}/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar
+!path ${M2REPO}/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5.jar
+!path ${M2REPO}/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+!path ${M2REPO}/antlr/antlr/2.7.7/antlr-2.7.7.jar
+!path ${M2REPO}/javassist/javassist/3.12.1.GA/javassist-3.12.1.GA.jar
+!path ${M2REPO}/org/hsqldb/hsqldb/2.2.9/hsqldb-2.2.9.jar
+!path ${M2REPO}/org/hibernate/hibernate-core/3.6.10.Final/hibernate-core-3.6.10.Final.jar
+!path ${M2REPO}/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar

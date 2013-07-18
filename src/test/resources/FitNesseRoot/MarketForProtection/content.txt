@@ -1,0 +1,123 @@
+!contents -R2 -g -p -f -h
+[[back][FrontPage]]
+
+|edu.uci.imbs.actor.fit.ProtectionFixture|
+
+|protection parameter space|
+
+We begin by defining the protection parameter space.
+
+Uncomment the following line to rebuild a parameter space from an existing file.  ''Note: this will override all the subsequent input.''
+
+|note|Rebuild parameter space from file|/Users/stevedoubleday/Downloads/Fitnesse-Apr2011/ScenarioSet_10/parameterSpaceScenario_10.xml|
+
+|note|!path /Users/stevedoubleday/Documents/workspace/protection/bin/
+|note|!path /Users/stevedoubleday/Documents/workspace/protection/lib/*.jar
+|note|!path /Users/stevedoubleday/Documents/workspace/protectionFit/bin/
+|note|!path /Users/stevedoubleday/Documents/workspace/protectionFit/lib/*.jar
+|note|!path /Users/stevedoubleday/Documents/workspace/SmartAnts/bin/
+|note|!path /Users/stevedoubleday/Documents/workspace/SmartAnts/lib/*.jar
+
+|Build parameter space named|Forced allocation of B 1, L 0-6400, H 6400-0, all interactions (170)|
+|Current class is|edu.uci.imbs.actor.ProtectionParameters|
+|Array parameter named|use role shifting dynamic|with values|false|
+|Static Boolean field to update is|ROLE_SHIFTING|
+|Array parameter named|actors who do worse shift to role of actors who do better|with values|false|
+|Static Boolean field to update is|MIMIC_BETTER_PERFORMING_POPULATION|
+|Array parameter named|multiple bandits prey on multiple peasants|with values|false|
+|Static Boolean field to update is|MULTIPLE_BANDITS_PREY_ON_MULTIPLE_PEASANTS|
+|Array parameter named|only bandits and peasants interact|with values|false|
+|Static Boolean field to update is|NORMAL_INTERACTION_PATTERN|
+|Array parameter named|number of runs to reach equilibrium or stop|with values|100|
+|Static Integer field to update is|RUN_LIMIT|
+|Array parameter named|maximum population size before run stops|with values|25000|
+|Static Integer field to update is|MAXIMUM_POPULATION_SIZE|
+|Array parameter named|number of consecutive periods without adjustment defines equilibrium|with values|10|
+|Static Integer field to update is|EQUILIBRIUM_NUMBER_PERIODS_WITHOUT_ADJUSTMENT|
+|Array parameter named|threshold at which actors survive|with values|.1|
+|Static Double field to update is|SURVIVE_THRESHOLD|
+|Array parameter named|threshold at which actors thrive|with values|.4|
+|Static Double field to update is|THRIVE_THRESHOLD|
+|Array parameter named|bandit-peasant payoff discrepancy tolerance|with values|.05|
+|Static Double field to update is|PAYOFF_DISCREPANCY_TOLERANCE|
+|Array parameter named|percent of lowest surviving actors to shift roles|with values|.1|
+|Static Double field to update is|ADJUSTMENT_FACTOR_PERCENTAGE|
+|Array parameter named|initial number of peasants|with values|6400|
+|Static Integer field to update is|NUMBER_PEASANTS|
+|Array parameter named|initial number of bandits|with values|1|
+|Static Integer field to update is|NUMBER_BANDITS|
+|Array parameter named|maximum number of peasants a bandit will prey upon|with values|1|
+|Static Integer field to update is|MAX_PEASANTS_TO_PREY_UPON|
+|Array parameter named|cost to bandit to prey on one peasant|with values|0|
+|Static Double field to update is|COST_TO_PREY_ON_SINGLE_PEASANT|
+|Array parameter named|use matching function to limit number of peasants bandit successfully preys on|with values|false|
+|Static Boolean field to update is|BANDITS_USE_MATCHING_FUNCTION|
+|Array parameter named|matching function exponent for number of bandits|with values|0.5|
+|Static Double field to update is|MATCHING_FUNCTION_ALPHA_EXPONENT|
+|Array parameter named|matching function exponent for number of peasants|with values|0.5|
+|Static Double field to update is|MATCHING_FUNCTION_BETA_EXPONENT|
+|Array parameter named|matching function constant multiplier|with values|1|
+|Static Double field to update is|MATCHING_FUNCTION_MU|
+|Array parameter named|gamma for contest function|with values|.5|
+|Static Double field to update is|CONTEST_FUNCTION_GAMMA|
+|Array parameter named|force peasants to one of two protection proportions|with values|true|
+|Static Boolean field to update is|FORCE_PEASANT_ALLOCATION_TO_HIGH_LOW|
+|Array parameter named|force peasants low protection proportion|with values|0.1|
+|Static Double field to update is|FORCE_PEASANT_ALLOCATION_LOW_PROPORTION|
+|Array parameter named|force peasants high protection proportion|with values|0.7|
+|Static Double field to update is|FORCE_PEASANT_ALLOCATION_HIGH_PROPORTION|
+|Range parameter named|number peasants with low protection proportion|from|0|to|6400|by|400|
+|Static Integer field to update is|FORCE_PEASANT_ALLOCATION_LOW_INITIAL_PEASANTS|
+|Array parameter named|random number seed|with values|1234567890123456789, -5667349224149818212, 6515921335490448286, -8788681650301948134, -4514942521186627771, 7323449491256553230, -4614269149927667521, 7562077152359325602, -126980190151879182, 3190657484983120391|
+|Static Long field to update is|RANDOM_SEED|
+
+
+Matching functions are discussed [[here][http://en.wikipedia.org/wiki/Matching_theory_%28economics%29]].  The matching function result is then divided by the number of bandits (and capped at 1.0, if necessary) to give a percentage of the number of attempts at predation that will be successful for any individual bandit.  
+
+|note|Array parameter named|threshold at which actors thrive|with values|.25, .3, .35, .4, .45, .5|
+|note|Array parameter named|random number seed|with values|1234567890123456789, -987654321, 454567677, -4016741308, 76899541533|
+|note|Array parameter named|initial number of peasants|with values|1000|
+|note|Range parameter named|initial number of bandits|from|1000|to|2800|by|300|
+|note|Array parameter named|force peasants allocation number peasants with low protection proportion|with values|0, 400, 800, 1200, 1600, 2000, 2400, 2800, 3200, 3600, 4000, 4400, 4800, 5200, 5600, 6000, 6400|
+|note|Range parameter named|number peasants with low protection proportion|from|0|to|400|by|400|
+
+
+The parameter space can either be built from the input above, or rebuilt from an existing file.  When a parameter space is rebuilt, the input values from above are ignored.  (The only way to see the input that is being used is to look in the xml file that is being used to build the file.)   
+
+|show|Parameter space source|
+
+Show the number of parameter points in the parameter space.  ''Exercise caution here; if the number is very large, extreme execution times will result.  Consider reducing the number of values for one or more parameters to shrink the parameter space to something manageable.''
+|show|Parameter space size|
+
+
+Show the parameters in the parameter space:
+
+|Parameters|
+|name|
+|use role shifting dynamic|
+|actors who do worse shift to role of actors who do better|
+|multiple bandits prey on multiple peasants|
+|only bandits and peasants interact|
+|number of runs to reach equilibrium or stop|
+|maximum population size before run stops|
+|number of consecutive periods without adjustment defines equilibrium|
+|threshold at which actors survive|
+|threshold at which actors thrive|
+|bandit-peasant payoff discrepancy tolerance|
+|percent of lowest surviving actors to shift roles|
+|initial number of peasants|
+|initial number of bandits|
+|maximum number of peasants a bandit will prey upon|
+|cost to bandit to prey on one peasant|
+|use matching function to limit number of peasants bandit successfully preys on|
+|matching function exponent for number of bandits|
+|matching function exponent for number of peasants|
+|matching function constant multiplier|
+|gamma for contest function|
+|force peasants to one of two protection proportions|
+|force peasants low protection proportion|
+|force peasants high protection proportion|
+|number peasants with low protection proportion|
+|random number seed|
+
+|note|run scenarios|

@@ -1,0 +1,7 @@
+target
+src/target
+src/test/resources/FitNesseRoot/files/testResults
+src/test/resources/FitNesseRoot/RecentChanges
+src/test/resources/FitNesseRoot/ErrorLogs
+.DS*
+*.zip
