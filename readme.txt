@@ -1,6 +1,8 @@
 7/13/13  
 
-protection-scenario-fit enables fitlibrary acceptance tests and production simulations to be run against the Market for Protection model (protection-simulation)
+protection-scenario-fit enables fitlibrary acceptance tests and production simulations to be run against the Market for Protection model (protection-simulation).
+This project is maintained here: 
+   https://github.com/sjdayday/protection-simulation-fit.git
 
 Pre-requisites:
  
@@ -26,7 +28,8 @@ Set up environment variable SCENARIO_ROOT pointing to a directory where scenario
 Alternatively, you may want to define SCENARIO_ROOT on the startup of fitnesse, e.g., java -DSCENARIO_ROOT=/Users/stevedoubleday/scenario [remaining fitnesse parameters - see below]  
 
 I suggest you start a separate instance of fitnesse for this project.  
-A sample fitnesse startup command for this project (change the directories to match your configuration):
+A sample fitnesse startup command for this project (change the directories to match your configuration).  
+Note that this command would be issued from the directory where you installed fitnesse, from the simulation-scenario-fit instructions:
 
 java -DPROTTARGET=/Users/stevedoubleday/git/protection-simulation-fit/target -jar fitnesse.jar -p 8091 -e 0 -d /Users/stevedoubleday/git/protection-simulation-fit/src/test/resources   
 

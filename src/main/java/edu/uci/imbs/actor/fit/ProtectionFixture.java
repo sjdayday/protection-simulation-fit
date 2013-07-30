@@ -79,7 +79,9 @@ public class ProtectionFixture extends DoFixture
 
 	public void runScenarios() throws ScenarioException
 	{
-		ProtectionParameters.resetForTesting(); //FIXME replace once Range Parameter supported for doubles
+		ProtectionParameters.resetForTesting(); //FIXME replace once Range Parameter supported for doubles...
+		//  ... but may also be needed to handle rerunning a parameter set from xml file when new parameters have been added 
+		//      and we want to ensure they default to the implied values at the time of the original run 
 		ScenarioSet<String, DummyInput> scenarioSet = new MockHibernateScenarioSet<String, DummyInput>(false);		
 		scenarioSet.setName("protection"); // perhaps a different name  
 		scenarioSet.setModel(new ProtectionModel<String>());
