@@ -14,11 +14,15 @@ import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.grayleaves.utility.fit.ParameterSpaceFixture;
+import org.grayleaves.utility.Constants;
 import org.grayleaves.utility.DummyInput;
+import org.grayleaves.utility.Environment;
 import org.grayleaves.utility.MockClock;
 import org.grayleaves.utility.MockHibernateScenarioSet;
 import org.grayleaves.utility.NameValuePair;
 import org.grayleaves.utility.NameValuePairBuilder;
+import org.grayleaves.utility.OutputFileBuilder;
+import org.grayleaves.utility.OutputFileBuilderException;
 import org.grayleaves.utility.ParameterSpace;
 import org.grayleaves.utility.ParameterSpacePersister;
 import org.grayleaves.utility.ScenarioException;
@@ -42,6 +46,7 @@ public class ProtectionFixture extends DoFixture
 	private FileAppender appender;
 	private ParameterSpaceFixture protectionParameterSpaceFixture;
 	private static final String LAYOUT = "%p %c{2}:  %m %n";
+	private ScenarioSet<String, DummyInput> scenarioSet;
 
 	
 	public ProtectionFixture() 
@@ -80,9 +85,7 @@ public class ProtectionFixture extends DoFixture
 	public void runScenarios() throws ScenarioException
 	{
 		ProtectionParameters.resetForTesting(); //FIXME replace once Range Parameter supported for doubles...
-		//  ... but may also be needed to handle rerunning a parameter set from xml file when new parameters have been added 
-		//      and we want to ensure they default to the implied values at the time of the original run 
-		ScenarioSet<String, DummyInput> scenarioSet = new MockHibernateScenarioSet<String, DummyInput>(false);		
+		scenarioSet = new MockHibernateScenarioSet<String, DummyInput>(false);		
 		scenarioSet.setName("protection"); // perhaps a different name  
 		scenarioSet.setModel(new ProtectionModel<String>());
 		scenarioSet.setInput(new DummyInput());
@@ -135,7 +138,7 @@ public class ProtectionFixture extends DoFixture
 		try
 		{
 			String name = "parameterSpaceScenario_"+scenarioSet.getId(); 
-			String filename = scenarioSet.getOutputFileBuilder().getRootDirectoryFullPathName()+"/"+name+".xml"; 
+			String filename = scenarioSet.getOutputFileBuilder().getRootDirectoryFullPathName()+Constants.SLASH+name+".xml"; 
 //			scenarioSet.getParameterSpace().setName(name);
 			scenarioSet.getParameterSpace().setFilename(filename); 
 			ParameterSpacePersister<ParameterSpace> spacePersister = new ParameterSpacePersister<ParameterSpace>();
@@ -148,14 +151,17 @@ public class ProtectionFixture extends DoFixture
 		}
 	}
 	
-	private int buildMockId()
+	private int buildMockId() throws ScenarioException
 	{
+		String pathname = "";
+		String envPath = Environment.getEnv("SCENARIO_ROOT");
+		if (envPath != null) pathname = envPath+Constants.SLASH;
 		int id = 1;
 		File file = null; 
 		boolean idNotAvailable = true;
 		while (idNotAvailable)
 		{
-			file = new File("ScenarioSet_"+id);
+			file = new File(pathname+"ScenarioSet_"+id);
 			if (!file.exists())
 			{
 				idNotAvailable = false; 
