@@ -23,7 +23,7 @@ import edu.uci.imbs.actor.ProtectionFunctionEnum;
 import edu.uci.imbs.actor.ProtectionParameters;
 import edu.uci.imbs.actor.ProtectionReplicatorDynamic;
 import edu.uci.imbs.actor.DieSurviveThriveDynamic;
-import edu.uci.imbs.actor.RoleShiftingReplicatorDynamic;
+import edu.uci.imbs.actor.RoleShiftingDynamic;
 import edu.uci.imbs.actor.RunGovernorEnum;
 import edu.uci.imbs.actor.StatisticsRecord;
 import edu.uci.imbs.actor.VariablePopulationProtectionStatistics;
@@ -117,7 +117,7 @@ public class ProtectionModel<T> extends PersistentModel<T>
 		seeker.setBanditList(bandits); 
 		seeker.setProtectionStatistics(statistics);
 		seeker.addDynamic(new ProtectionReplicatorDynamic(replicatorDynamic)); 
-		if (ProtectionParameters.ROLE_SHIFTING) seeker.addDynamic(new RoleShiftingReplicatorDynamic(statistics)); 
+		if (ProtectionParameters.ROLE_SHIFTING) seeker.addDynamic(new RoleShiftingDynamic(statistics)); 
 		seeker.setRunLimit(ProtectionParameters.RUN_LIMIT); 
 
 //		seeker = new VariablePopulationProtectionEquilibriumSeeker(); 
@@ -177,12 +177,18 @@ public class ProtectionModel<T> extends PersistentModel<T>
 		Peasant peasant = null; 
 		for (int i = 0; i < ProtectionParameters.NUMBER_PEASANTS; i++)
 		{
-			peasant = new Peasant(); 
-			peasant.setFunction(ProtectionFunctionEnum.CONTEST.buildFunction(ProtectionParameters.CONTEST_FUNCTION_GAMMA)); 
-			peasant.setProtectionProportion(ProtectionParameters.PROTECTION_PARAMETER_INTERVAL_SIZE * r.nextInt(ProtectionParameters.PROTECTION_PARAMETER_NUMBER_INTERVALS));
+			peasant = Peasant.buildPeasantWithContestFunctionAndRandomProtectionProportion(r);
+//			peasant = buildPeasantWithRandomProtectionProportion(r);
 			peasants.add(peasant);
 		}
 	}
+
+//	protected Peasant buildPeasantWithRandomProtectionProportion(Random r) {
+//		Peasant peasant = new Peasant(); 
+//		peasant.setFunction(ProtectionFunctionEnum.CONTEST.buildFunction(ProtectionParameters.CONTEST_FUNCTION_GAMMA)); 
+//		peasant.setProtectionProportion(ProtectionParameters.PROTECTION_PARAMETER_INTERVAL_SIZE * r.nextInt(ProtectionParameters.PROTECTION_PARAMETER_NUMBER_INTERVALS));
+//		return peasant;
+//	}
 	private void buildForcedPeasantAllocation()
 	{
 		int low = (ProtectionParameters.NUMBER_PEASANTS >= ProtectionParameters.FORCE_PEASANT_ALLOCATION_LOW_INITIAL_PEASANTS) 

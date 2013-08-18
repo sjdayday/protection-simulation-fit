@@ -8,17 +8,17 @@ To comment any line, precede it with "|note".
 
 Uncomment the following line to rebuild a parameter space from an existing file (change the filename).  ''This will override all the subsequent input.''
 
-|note|Rebuild parameter space from file|/Users/stevedoubleday/scenario/ScenarioSet_10/parameterSpaceScenario_10.xml|
+|note|Rebuild parameter space from file|/Users/stevedoubleday/Downloads/Fitnesse-Apr2011/ScenarioSet_19/parameterSpaceScenario_19_classnames_changed.xml|
 
-|Build parameter space named|Forced allocation of B 1, L 0-6400, H 6400-0, all interactions (170)|
+|Build parameter space named|Analytical equilibrium, no thrive, all survive, mimicry, .01 tolerance (2970)|
 |Current class is|edu.uci.imbs.actor.ProtectionParameters|
-|Array parameter named|use role shifting dynamic|with values|false|
+|Array parameter named|use role shifting dynamic|with values|true|
 |Static Boolean field to update is|ROLE_SHIFTING|
-|Array parameter named|actors who do worse shift to role of actors who do better|with values|false|
+|Array parameter named|actors who do worse shift to role of actors who do better|with values|true|
 |Static Boolean field to update is|MIMIC_BETTER_PERFORMING_POPULATION|
 |Array parameter named|multiple bandits prey on multiple peasants|with values|false|
 |Static Boolean field to update is|MULTIPLE_BANDITS_PREY_ON_MULTIPLE_PEASANTS|
-|Array parameter named|only bandits and peasants interact|with values|false|
+|Array parameter named|only bandits and peasants interact|with values|true|
 |Static Boolean field to update is|NORMAL_INTERACTION_PATTERN|
 |Array parameter named|number of runs to reach equilibrium or stop|with values|100|
 |Static Integer field to update is|RUN_LIMIT|
@@ -26,17 +26,17 @@ Uncomment the following line to rebuild a parameter space from an existing file 
 |Static Integer field to update is|MAXIMUM_POPULATION_SIZE|
 |Array parameter named|number of consecutive periods without adjustment defines equilibrium|with values|10|
 |Static Integer field to update is|EQUILIBRIUM_NUMBER_PERIODS_WITHOUT_ADJUSTMENT|
-|Array parameter named|threshold at which actors survive|with values|.1|
+|Array parameter named|threshold at which actors survive|with values|0|
 |Static Double field to update is|SURVIVE_THRESHOLD|
-|Array parameter named|threshold at which actors thrive|with values|.4|
+|Array parameter named|threshold at which actors thrive|with values|1|
 |Static Double field to update is|THRIVE_THRESHOLD|
-|Array parameter named|bandit-peasant payoff discrepancy tolerance|with values|.05|
+|Array parameter named|bandit-peasant payoff discrepancy tolerance|with values|.01|
 |Static Double field to update is|PAYOFF_DISCREPANCY_TOLERANCE|
-|Array parameter named|percent of lowest surviving actors to shift roles|with values|.1|
+|Array parameter named|percent of lowest surviving actors to shift roles|with values|.05, .1, .2|
 |Static Double field to update is|ADJUSTMENT_FACTOR_PERCENTAGE|
-|Array parameter named|initial number of peasants|with values|6400|
+|Array parameter named|initial number of peasants|with values|1000, 2000, 3000|
 |Static Integer field to update is|NUMBER_PEASANTS|
-|Array parameter named|initial number of bandits|with values|1|
+|Array parameter named|initial number of bandits|with values|1000, 2000, 3000|
 |Static Integer field to update is|NUMBER_BANDITS|
 |Array parameter named|maximum number of peasants a bandit will prey upon|with values|1|
 |Static Integer field to update is|MAX_PEASANTS_TO_PREY_UPON|
@@ -50,16 +50,18 @@ Uncomment the following line to rebuild a parameter space from an existing file 
 |Static Double field to update is|MATCHING_FUNCTION_BETA_EXPONENT|
 |Array parameter named|matching function constant multiplier|with values|1|
 |Static Double field to update is|MATCHING_FUNCTION_MU|
-|Array parameter named|gamma for contest function|with values|.5|
+|Array parameter named|gamma for contest function|with values|.5, .55, .6, .65, .7, .75, .8, .85, .9, .95, 1|
 |Static Double field to update is|CONTEST_FUNCTION_GAMMA|
-|Array parameter named|force peasants to one of two protection proportions|with values|true|
+|Array parameter named|force peasants to one of two protection proportions|with values|false|
 |Static Boolean field to update is|FORCE_PEASANT_ALLOCATION_TO_HIGH_LOW|
 |Array parameter named|force peasants low protection proportion|with values|0.1|
 |Static Double field to update is|FORCE_PEASANT_ALLOCATION_LOW_PROPORTION|
 |Array parameter named|force peasants high protection proportion|with values|0.7|
 |Static Double field to update is|FORCE_PEASANT_ALLOCATION_HIGH_PROPORTION|
-|Range parameter named|number peasants with low protection proportion|from|0|to|6400|by|400|
+|Array parameter named|number peasants with low protection proportion|with values|0|
 |Static Integer field to update is|FORCE_PEASANT_ALLOCATION_LOW_INITIAL_PEASANTS|
+|Array parameter named|role shifting dynamic allocates new peasant with protection proportion|with values|true|
+|Static Boolean field to update is|NEW_PEASANT_GETS_BEST_PROTECTION_PROPORTION|
 |Array parameter named|random number seed|with values|1234567890123456789, -5667349224149818212, 6515921335490448286, -8788681650301948134, -4514942521186627771, 7323449491256553230, -4614269149927667521, 7562077152359325602, -126980190151879182, 3190657484983120391|
 |Static Long field to update is|RANDOM_SEED|
 
@@ -103,6 +105,7 @@ Show the parameters in the parameter space:
 |force peasants low protection proportion|
 |force peasants high protection proportion|
 |number peasants with low protection proportion|
+|role shifting dynamic allocates new peasant with protection proportion|
 |random number seed|
 
 To execute the scenarios with the parameters above, remove the comment:  "|run scenarios|"
