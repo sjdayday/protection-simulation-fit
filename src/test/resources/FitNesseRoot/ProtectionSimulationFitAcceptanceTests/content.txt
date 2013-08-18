@@ -12,7 +12,7 @@
 !path ${PROTTARGET}/test-classes/
 !path ${M2REPO}/org/grayleaves/simulation-scenario/1.0-SNAPSHOT/simulation-scenario-1.0-SNAPSHOT.jar
 !path ${M2REPO}/org/grayleaves/simulation-scenario/1.0-SNAPSHOT/simulation-scenario-1.0-SNAPSHOT-tests.jar
-!path ${M2REPO}/edu/uci/imbs/protection-simulation/1.0/protection-simulation-1.0.jar
+!path ${M2REPO}/edu/uci/imbs/protection-simulation/1.1/protection-simulation-1.1.jar
 !path ${M2REPO}/org/grayleaves/simulation-scenario-fit/1.0-SNAPSHOT/simulation-scenario-fit-1.0-SNAPSHOT.jar
 !path ${M2REPO}/javax/transaction/jta/1.1/jta-1.1.jar
 !path ${M2REPO}/javax/security/jacc/1.0/jacc-1.0.jar
