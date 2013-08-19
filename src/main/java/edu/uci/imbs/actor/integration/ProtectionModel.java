@@ -140,8 +140,8 @@ public class ProtectionModel<T> extends PersistentModel<T>
 
 	private void buildStatistics()
 	{
-		statistics = new VariablePopulationProtectionStatistics(bandits, peasants, ProtectionParameters.PROTECTION_PARAMETER_NUMBER_INTERVALS, 
-				ProtectionParameters.PROTECTION_PARAMETER_INTERVAL_SIZE); 
+		statistics = new VariablePopulationProtectionStatistics(bandits, peasants, ProtectionParameters.PROTECTION_PROPORTION_NUMBER_INTERVALS, 
+				ProtectionParameters.PROTECTION_PROPORTION_INTERVAL_SIZE); 
 		statistics.setPayoffDiscrepancyTolerance(ProtectionParameters.PAYOFF_DISCREPANCY_TOLERANCE);
 		statistics.setAdjustmentFactorPercentage(ProtectionParameters.ADJUSTMENT_FACTOR_PERCENTAGE); 
 	}

@@ -42,8 +42,8 @@ public class DebugScenarioTest
 	
 	private void setParameters() 
 	{
-		ProtectionParameters.PROTECTION_PARAMETER_INTERVAL_SIZE = .05; 
-		ProtectionParameters.PROTECTION_PARAMETER_NUMBER_INTERVALS = 21; 
+		ProtectionParameters.PROTECTION_PROPORTION_INTERVAL_SIZE = .05; 
+		ProtectionParameters.PROTECTION_PROPORTION_NUMBER_INTERVALS = 21; 
 		ProtectionParameters.CONTEST_FUNCTION_GAMMA = 0.625; 
 		ProtectionParameters.ROLE_SHIFTING = true;
 		ProtectionParameters.SURVIVE_THRESHOLD = 0.15; 
