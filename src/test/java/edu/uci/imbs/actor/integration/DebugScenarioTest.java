@@ -18,7 +18,6 @@ import org.apache.log4j.Logger;
 import org.grayleaves.utility.Result;
 import org.grayleaves.utility.ScenarioException;
 import org.junit.Before;
-import org.junit.Test;
 
 import edu.uci.imbs.actor.ProtectionParameters;
 
@@ -26,6 +25,7 @@ public class DebugScenarioTest
 {
 	private ProtectionModel<String> model;
 	private FileAppender appender;
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger(DebugScenarioTest.class);
 	@Before
 	public void setUp() throws Exception
@@ -103,7 +103,6 @@ public class DebugScenarioTest
 		Logger.getRootLogger().setLevel(Level.DEBUG);
 		Logger.getRootLogger().addAppender(appender); 
 	}
-	@SuppressWarnings("unused")
 	private void writeRecordsFromLog(List<String> records) throws ScenarioException
 	{
 		BufferedWriter writer = null; 
